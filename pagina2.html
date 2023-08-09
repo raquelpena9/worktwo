@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang ="pt-br">
+<head>
+    <meta charset= "UTF - 8"> 
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Formulário com Evento Submit</title>
+    <style>
+        body {
+          background-image: url(carroemgif.gif);
+          background-repeat: no-repeat;
+          background-size:cover;
+          font-family: "Helvetica Neue", Arial, sans-serif;
+          background-color: #f2f2f2;
+          margin: 0;
+          padding: 80px;
+        }
+
+        .container {
+    background-color: #cfe6ca;
+    display: inline-block;
+      margin: 20px auto;
+      padding: 75px;
+      width: 300px;
+      text-align: center;
+      height: 300px;
+    }   
+    
+    </style>
+</head>
+<body> 
+<div class="container">
+    <h1> Quer compartilhar a paixão conosco?</h1>
+    <p> Deixe aqui seu contato para conversarmos!</p>
+    <br></br>
+
+<form id="meuFormulario">
+    <label for="name">Nome:</label>
+    <input type="text" id="nome" name="nome" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <button type="submit">Enviar</button>
+</form>
+</div>
+<div id="mensagem"></div>
+
+<script>
+  const formulario = document.getElementById('meuFormulario');
+  const mensagemDiv = document.getElementById('mensagem');
+
+  formulario.addEventListener('submit', function(evento) {
+    evento.preventDefault(); // Impede que o formulário seja enviado
+
+    const nome = formulario.nome.value;
+    const email = formulario.email.value;
+
+    const mensagem = `Obrigado, ${nome}! Agora só aguardar para acelerarmos as emoções!`;
+    mensagemDiv.textContent = mensagem;
+
+    formulario.reset(); // Limpa os campos do formulário
+  });
+</script>
+
+</body>
+</html>
